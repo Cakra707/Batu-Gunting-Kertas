@@ -145,9 +145,9 @@ function play(pmove) {
   document.querySelector('.updsc').innerText = `${result}`
 
   document.querySelector('.updmove').innerHTML = `
-    Kamu <img src="${pmove}-emoji.png" class="img"> 
+    Kamu <img src="images/${pmove}-emoji.png" class="img"> 
     VS 
-    <img src="${computer}-emoji.png" class="img"> Komputer
+    <img src="images/${computer}-emoji.png" class="img"> Komputer
   `
 
   scoreelement()
