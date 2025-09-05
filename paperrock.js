@@ -16,25 +16,23 @@ if (!score) {
 }
 */
 
-const konfir = document.querySelector('.konfir')
-konfir.hidden = true
 
 document.querySelector('.yes').addEventListener('click', () => {
   resetscore()
-  konfir.hidden = true
+  document.querySelector('.konfir').classList.remove('nampak')
 })
 
 document.querySelector('.no').addEventListener('click', () => {
-  konfir.hidden = true
+  document.querySelector('.konfir').classList.remove('nampak')
 })
 
 document.querySelector('.rb').addEventListener('click', () => {
-  konfir.hidden = false
+  document.querySelector('.konfir').classList.add('nampak')
 })
 
 document.body.addEventListener('keydown', (event) => {
   if (event.key === 'Backspace') {
-    konfir.hidden = false
+    document.querySelector('.konfir').classList.add('nampak')
   }
 })
 
@@ -144,6 +142,19 @@ function play(pmove) {
 
   document.querySelector('.updsc').innerText = `${result}`
 
+  if (result==='Kamu kalah'){
+    document.querySelector('.updsc').classList.add('red')
+    document.querySelector('.updsc').classList.remove('green')
+  } else if (result==='Kamu menang') {
+    document.querySelector('.updsc').classList.remove('red')
+     document.querySelector('.updsc').classList.add('green')
+  } else {
+    document.querySelector('.updsc').classList.remove('red')
+     document.querySelector('.updsc').classList.remove('green')
+  }
+
+
+
   document.querySelector('.updmove').innerHTML = `
     Kamu <img src="images/${pmove}-emoji.png" class="img"> 
     VS 
@@ -157,6 +168,8 @@ function scoreelement() {
   document.querySelector('.scoreshow').innerHTML =
     `Menang: ${score.win}, Kalah: ${score.lose}, Seri: ${score.tie}`
 }
+
+
 
 function computerMove() {
   const randomNumber = Math.random()
