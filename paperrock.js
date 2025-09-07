@@ -91,13 +91,25 @@ document.querySelector('.paperbtb').addEventListener('click', () => {
 })
 
 document.body.addEventListener('keydown', (event) => {
+  let button;
+
   if (event.key === 'b') {
-    play('Batu')
+    play('Batu');
+    button = document.querySelector('.rockbtb');
   } else if (event.key === 'g') {
-    play('Gunting')
+    play('Gunting');
+    button = document.querySelector('.scissorbtb');
   } else if (event.key === 'k') {
-    play('Kertas')
+    play('Kertas');
+    button = document.querySelector('.paperbtb');
   }
+  if (button) {
+    button.classList.add('active');
+  }
+
+  setTimeout(()=>{
+    button.classList.remove('active')
+  },200)
 })
 
 function resetscore() {

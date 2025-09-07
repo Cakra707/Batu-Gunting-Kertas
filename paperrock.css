@@ -47,6 +47,11 @@ body{
 .btb:active, :hover{
     opacity: 1;
 }
+
+.btb.active{
+    opacity: 1;
+}
+
                 
 .updsc {
     font-size:24px;
