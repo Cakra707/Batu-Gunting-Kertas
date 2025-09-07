@@ -4,6 +4,10 @@ let score = JSON.parse(localStorage.getItem('score')) || { // default operator s
   tie: 0
 }
 
+
+
+
+
 scoreelement()
 
 /* Sama kaya di atas
@@ -20,6 +24,10 @@ if (!score) {
 document.querySelector('.yes').addEventListener('click', () => {
   resetscore()
   document.querySelector('.konfir').classList.remove('nampak')
+
+  document.querySelector('.updsc').innerText = ''
+
+  document.querySelector('.updmove').innerHTML = ''
 })
 
 document.querySelector('.no').addEventListener('click', () => {
@@ -138,9 +146,13 @@ function play(pmove) {
     score.tie += 1
   }
 
-  localStorage.setItem('score', JSON.stringify(score))
-
   document.querySelector('.updsc').innerText = `${result}`
+  
+
+  localStorage.setItem('score', JSON.stringify(score))
+  
+
+  
 
   if (result==='Kamu kalah'){
     document.querySelector('.updsc').classList.add('red')
@@ -160,8 +172,9 @@ function play(pmove) {
     VS 
     <img src="images/${computer}-emoji.png" class="img"> Komputer
   `
-
   scoreelement()
+
+  
 }
 
 function scoreelement() {
